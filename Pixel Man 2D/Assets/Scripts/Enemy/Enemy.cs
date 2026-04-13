@@ -21,5 +21,11 @@ public class Enemy : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         speed = -speed;
+        FlipFacingEnemy();
+    }
+
+    void FlipFacingEnemy()
+    {
+        transform.localScale = new Vector2(-Mathf.Sign(rb.linearVelocity.x), 1f);
     }
 }
